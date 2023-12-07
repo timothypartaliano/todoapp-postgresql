@@ -5,4 +5,5 @@
 
 <h3 *ngFor="let note of notes">
   <b>- {{note.description}}</b>
+  <button (click)="deleteNotes(note.id)">Delete</button>
 </h3>

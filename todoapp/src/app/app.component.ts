@@ -33,4 +33,11 @@ export class AppComponent {
       this.refreshNotes();
     })
   }
+
+  deleteNotes(id:any){
+    this.http.delete(this.APIUrl+'DeleteNotes?id='+id).subscribe(data=>{
+      alert(data);
+      this.refreshNotes();
+    })
+  }
 }
