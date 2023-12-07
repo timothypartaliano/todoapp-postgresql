@@ -5,5 +5,7 @@
 
 <h3 *ngFor="let note of notes">
   <b>- {{note.description}}</b>
+  <input type="text" [(ngModel)]="note.description" />
+  <button (click)="updateNotes(note.id, note.description)">Update</button>
   <button (click)="deleteNotes(note.id)">Delete</button>
 </h3>

@@ -34,6 +34,14 @@ export class AppComponent {
     })
   }
 
+  updateNotes(id: any, newNotes: string) {
+    const data = { id, newNotes };
+    this.http.put(this.APIUrl + 'UpdateNotes', data).subscribe(data => {
+      alert(data);
+      this.refreshNotes();
+    });
+  }   
+
   deleteNotes(id:any){
     this.http.delete(this.APIUrl+'DeleteNotes?id='+id).subscribe(data=>{
       alert(data);
