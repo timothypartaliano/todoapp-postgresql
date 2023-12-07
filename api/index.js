@@ -26,7 +26,8 @@ app.post('/api/todoapp/AddNotes', multer().none(), async (request, response) => 
 });
 
 app.put('/api/todoapp/UpdateNotes', multer().none(), async (request, response) => {
-  const { id, newNotes } = request.body;
+  const id = request.body.id;
+  const newNotes = request.body.newNotes;
   const result = await client.query('UPDATE todoapp SET description = $1 WHERE id = $2', [newNotes, id]);
   if (result.rowCount > 0) {
     response.json('Updated Successfully');
